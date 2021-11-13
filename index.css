@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+:root {
+  --left-bg-color: rgba(9, 73, 103, 0.8);
+  --left-bg-active-color: rgba(9, 73, 103, 0.2);
+  --right-bg-color: rgba(21, 38, 27, 0.8);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+.container {
+  display: flex;
+  height: 100vh;
+  width: 100wh;
+}
+.split {
+  flex: 1;
+  display: flex;
+  background-repeat: no-repeat;
+  background-size: cover;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transition: 0.4s ease-in;
+}
+
+.split h1 {
+  font-size: 5rem;
+  color: #fff;
+}
+
+.split button {
+  font-size: 1.5rem;
+  color: #fff;
+  background-color: transparent;
+  border: 2px solid #fff;
+  border-radius: 3px;
+  padding: 10px 20px;
+  transition: 0.1s;
+}
+.split button:hover {
+  background-color: #fff;
+  color: #000;
+  transform: scale(1.1);
+}
+
+.split h1,
+button {
+  z-index: 9;
+}
+
+.split:first-child::after {
+  position: absolute;
+  content: "";
+  height: 100%;
+  background-color: var(--left-bg-color);
+  width: 100%;
+}
+.split:last-child::after {
+  position: absolute;
+  content: "";
+  height: 100%;
+  background-color: var(--right-bg-color);
+  width: 100%;
+}
+
+.split-active {
+  flex-grow: 3;
+}
+@media (max-width: 800px) {
+  .split h1 {
+    font-size: 3rem;
+    top: 30%;
+  }
+
+  .split button {
+    padding: 1rem;
+    font-size: 1rem;
+    padding: 5px 10px;
+  }
+}
